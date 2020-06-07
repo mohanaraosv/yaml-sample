@@ -1,0 +1,49 @@
+# this is a comment
+
+my-object: #To access a value: "my-object.booleans"
+  string1: "string with double quotes"
+  string2: 'string with single quotes'
+  integers: 30
+  floats: 3.5
+  complex-numbers: 1e+10
+  booleans: true
+  dates-in-ISO-8601: 2018-10-05T11:16:44-03:00 # 05 de Out de 2018 - 11:16:44 em GMT-3
+  null-values: null
+  my-list:
+    - item1
+    - item2
+    - item3
+  my-other-list: ["other1", "other2"]
+  list-of-ojects:
+    - name: "list-item1"
+      age: 28
+    - {name: "list-item2", age: "27"}
+    - 
+      name: "list-item3"
+      age: 72
+  text-formated-as-one-line: >
+    Thinking more about this, I realize that the original examples are poor examples, 
+    because they don't in fact reveal the intention of the method, as it is not intuitive as to what the method is returning, 
+    which is part of the intent of the method we are trying to reveal. 
+    These Non-Controversial Examples are much better at showing how to 
+    (1) reveal the intention, 
+    (2) hide the implementation and 
+    (3) give a clear hint as to the expected return type
+  texted-formated-as-in-yaml: |  #Preserve format.
+    Thinking more about this, I realize that the original examples are poor examples, 
+    because they don't in fact reveal the intention of the method, as it is not intuitive as to what the method is returning, 
+    which is part of the intent of the method we are trying to reveal. 
+    These Non-Controversial Examples are much better at showing how to 
+    (1) reveal the intention, 
+    (2) hide the implementation and 
+    (3) give a clear hint as to the expected return type
+  anchoring-a-value: &value-anchored "some-value"  # Creating reference name for re-use
+  this-will-receive-anchor-value: *value-anchored # will be rendered as: "some-value"
+  anchoring-a-key-value-pair: &my-anchored-keyvalue
+    foo: "bar"
+  object-receiving-a-anchored-key-value-pair:
+    <<: *my-anchored-keyvalue # will be rendered as: foo: bar
+    some: "other value"
+  casting-as-float: !!float 50 # 50.0  
+  casting-as-string: !!str 3.5 # "3.5"
+
